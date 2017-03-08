@@ -1,0 +1,16 @@
+{
+  "name": "groceries",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "amanda cafe",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongoose": "^4.8.6",
+    "node-restful": "^0.2.6"
+  }
+}

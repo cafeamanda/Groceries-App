@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <table class="table">
+        <thead>
+          <tr style="text-align:left">
+            <th>Item</th>
+            <th>Classe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in groceryList">
+            <td>
+              <input type="checkbox" id="{{$index}}" ng-model="item.done" ng-click="removeExp($index)"/>
+              <label for="{{$index}}" class="done-{{item.done}}">{{item.name}}</label>
+            </td>
+            <td class="done-{{item.done}}">{{item.class}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <form id="itemForm" name="itemForm" ng-submit="submitItem()">
+        <div class="form-group">
+          <label for="name" class="control-label">Produto: </label>
+          <input type="text" class="form-control" ng-model="item.name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="class" class="control-label">Classe: </label>
+          <select class="form-control" ng-model="item.class" name="class">
+            <option ng-repeat="class in classes | orderBy: 'class'">
+              {{class.class}}
+            </option>
+          </select>
+        </div>
+        <input type="hidden" name="done" ng-model="item.done" ng-init="item.done=false">
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary pull-right">Adicionar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
